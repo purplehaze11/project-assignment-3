@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="flex-wrap d-flex justify-content-evenly">
         <ProductCard
             v-for="product in products"
             :key="product.id"
