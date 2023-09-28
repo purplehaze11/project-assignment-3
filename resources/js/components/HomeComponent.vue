@@ -5,5 +5,8 @@
 <script>
 export default {
     name: "HomeComponent",
+    mounted() {
+        this.$store.dispatch("FETCH_JOBS");
+    },
 };
 </script>
