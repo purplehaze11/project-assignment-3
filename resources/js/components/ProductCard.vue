@@ -1,15 +1,11 @@
 <template>
     <div class="card" style="width: 18rem">
-        <img
-            src="https://placehold.co/600x400"
-            class="card-img-top"
-            alt="..."
-        />
+        <img :src="product.imgUrl" class="card-img-top" alt="..." />
         <div class="card-body">
-            <h5 class="card-title">product.name</h5>
-            <p class="card-text">Price: Rp. product.harga</p>
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">Price: Rp. {{ product.price }}</p>
             <div class="d-flex justify-content-between align-items-center">
-                <p class="m-0 card-text">Stock: product.stok</p>
+                <p class="m-0 card-text">Stock: {{ product.stock }}</p>
                 <ActionButton class="btn-primary" text="Add to cart" />
             </div>
         </div>
@@ -21,6 +17,12 @@ import ActionButton from "./ActionButton.vue";
 
 export default {
     name: "ProductCard",
+    props: {
+        product: {
+            type: Object,
+            required: true,
+        },
+    },
     components: {
         ActionButton,
     },
