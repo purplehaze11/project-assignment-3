@@ -1,16 +1,46 @@
 {
-    "data": [
+    "products": [
         {
-            "id": 1,
-            "name": "Air Mineral"
+            "id": "1",
+            "name": "Buku Tulis",
+            "price": "12.000",
+            "stock": 250,
+            "inCart": 0
         },
         {
-            "id": 2,
-            "name": "Permen"
+            "id": "2",
+            "name": "Jaket Hitam",
+            "price": "149.000",
+            "stock": 24,
+            "inCart": 0
         },
         {
-            "id": 3,
-            "name": "Donat"
+            "id": "3",
+            "name": "Sepatu Merah",
+            "price": "210.000",
+            "stock": 15,
+            "inCart": 0
+        },
+        {
+            "id": "4",
+            "name": "Lemari Kayu",
+            "price": "430.000",
+            "stock": 1,
+            "inCart": 0
+        },
+        {
+            "id": "5",
+            "name": "Televisi",
+            "price": "2.200.000",
+            "stock": 5,
+            "inCart": 0
+        },
+        {
+            "id": "6",
+            "name": "Gorden",
+            "price": "320.000",
+            "stock": 7,
+            "inCart": 0
         }
     ]
 }
