@@ -1,5 +1,5 @@
-import HomeComponent from "./components/HomeComponent.vue";
-import CartComponent from "./components/CartComponent.vue";
+import HomeComponent from "./components/pages/HomeComponent.vue";
+import CartComponent from "./components/pages/CartComponent.vue";
 
 export const routes = [
     {

@@ -10,7 +10,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ProductCard from "./ProductCard.vue";
+import ProductCard from "../ProductCard.vue";
 
 export default {
     name: "HomeComponent",
