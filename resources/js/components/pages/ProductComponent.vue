@@ -5,7 +5,11 @@
             :key="product.id"
             :product="product"
         >
-            <div class="d-flex justify-content-around" v-if="product.id == id">
+            <div
+                id="product-template"
+                class="d-flex justify-content-around"
+                v-if="product.id == id"
+            >
                 <div class="product-content">
                     <img :src="product.imgUrl" alt="" />
                     <h2>{{ product.name }}</h2>
@@ -41,6 +45,10 @@ export default {
 </script>
 
 <style scoped>
+#product-template {
+    margin-top: 2rem;
+}
+
 .product-content {
     max-width: 40%;
 }

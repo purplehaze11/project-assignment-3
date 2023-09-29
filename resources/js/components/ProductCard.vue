@@ -8,7 +8,11 @@
             <p class="card-text">Price: Rp. {{ product.price }}</p>
             <div class="d-flex justify-content-between align-items-center">
                 <p class="m-0 card-text">Stock: {{ product.stock }}</p>
-                <ActionButton class="btn-primary" text="Add to cart" />
+                <ActionButton
+                    @click="addToCart"
+                    class="btn-primary"
+                    text="Add to cart"
+                />
             </div>
         </div>
     </div>
@@ -19,6 +23,11 @@ import ActionButton from "./ActionButton.vue";
 
 export default {
     name: "ProductCard",
+    data() {
+        return {
+            productId: this.product.id, //put the props data into data first
+        };
+    },
     props: {
         product: {
             type: Object,
@@ -31,6 +40,11 @@ export default {
     computed: {
         productLink() {
             return `/product/${this.product.id}`;
+        },
+    },
+    methods: {
+        addToCart() {
+            this.$store.dispatch("addToCart", this.productId);
         },
     },
 };
