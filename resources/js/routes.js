@@ -1,5 +1,6 @@
 import HomeComponent from "./components/pages/HomeComponent.vue";
 import CartComponent from "./components/pages/CartComponent.vue";
+import ProductComponent from "./components/pages/ProductComponent.vue";
 
 export const routes = [
     {
@@ -11,5 +12,11 @@ export const routes = [
         path: "/cart",
         name: "cart",
         component: CartComponent,
+    },
+    {
+        path: "/product/:id",
+        name: "product",
+        component: ProductComponent,
+        props: true,
     },
 ];

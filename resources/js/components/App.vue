@@ -13,5 +13,8 @@ export default {
     components: {
         TheNavbar,
     },
+    mounted() {
+        this.$store.dispatch("FETCH_PRODUCTS");
+    },
 };
 </script>

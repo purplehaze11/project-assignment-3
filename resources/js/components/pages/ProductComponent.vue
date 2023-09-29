@@ -1,22 +1,24 @@
 <template>
-    <div class="flex-wrap d-flex justify-content-evenly">
-        <ProductCard
+    <div>
+        <template
             v-for="product in products"
             :key="product.id"
             :product="product"
-        />
+        >
+            <div v-if="product.id == id">
+                <p>product page {{ id }}</p>
+                <h2>{{ product.name }}</h2>
+            </div>
+        </template>
     </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import ProductCard from "../ProductCard.vue";
 
 export default {
-    name: "HomeComponent",
-    components: {
-        ProductCard,
-    },
+    name: "ProductComponent",
+    props: ["id"],
     computed: {
         ...mapGetters({
             products: "getProducts",

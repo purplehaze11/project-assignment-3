@@ -1,6 +1,8 @@
 <template>
     <div class="card" style="width: 18rem">
-        <img :src="product.imgUrl" class="card-img-top" alt="..." />
+        <router-link :to="productLink">
+            <img :src="product.imgUrl" class="card-img-top" alt="..." />
+        </router-link>
         <div class="card-body">
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text">Price: Rp. {{ product.price }}</p>
@@ -25,6 +27,11 @@ export default {
     },
     components: {
         ActionButton,
+    },
+    computed: {
+        productLink() {
+            return `/product/${this.product.id}`;
+        },
     },
 };
 </script>
