@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="cart-template">
         <h2>Your Cart</h2>
         <ul class="list-group" v-if="totalInCart > 0">
             <template
@@ -11,7 +11,11 @@
                     <ProductInCart :product="product" />
                 </li>
             </template>
-            <li class="list-group-item"></li>
+            <li class="list-group-item">
+                <div id="total-price" class="d-flex justify-content-end">
+                    <p>Total: {{ totalPrice }}</p>
+                </div>
+            </li>
         </ul>
         <p v-else>You have no product in the cart</p>
     </div>
@@ -30,7 +34,19 @@ export default {
         ...mapGetters({
             products: "getProducts",
             totalInCart: "getTotalInCart",
+            totalPrice: "getTotalPrice",
         }),
     },
 };
 </script>
+
+<style scoped>
+#cart-template {
+    margin: 2rem auto;
+    width: 80%;
+}
+
+#total-price {
+    margin-right: 5%;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
     <div class="flex-row d-flex justify-content-between align-items-center">
-        <div class="list-section d-flex justify-content-center">
+        <div class="list-section name-price">
             <p>{{ product.name }}</p>
         </div>
         <div class="flex-row list-section d-flex justify-content-center">
@@ -21,7 +21,7 @@
                 text="Clear"
             />
         </div>
-        <div class="list-section d-flex justify-content-center">
+        <div class="list-section name-price d-flex justify-content-end">
             <p>Rp. {{ product.price }}</p>
         </div>
     </div>
@@ -67,5 +67,9 @@ p {
 
 .list-section {
     width: 30%;
+}
+
+.name-price {
+    margin: 0 5%;
 }
 </style>

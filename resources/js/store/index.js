@@ -13,6 +13,9 @@ export default createStore({
         getTotalInCart(state) {
             return state.totalInCart;
         },
+        getTotalPrice(state) {
+            return state.totalPrice;
+        },
     },
     mutations: {
         addToCart(state, payload) {
