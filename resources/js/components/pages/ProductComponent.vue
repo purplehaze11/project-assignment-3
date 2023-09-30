@@ -13,9 +13,20 @@
                 <div class="product-content">
                     <img :src="product.imgUrl" alt="" />
                     <h2>{{ product.name }}</h2>
-                    <p>{{ product.price }}</p>
-                    <p>{{ product.stock }}</p>
-                    <ActionButton class="btn-primary" text="Add to cart" />
+                    <p>Price: Rp. {{ product.price }}</p>
+                    <p>Stock: {{ product.stock }}</p>
+                    <ActionButton
+                        v-if="product.stock != 0"
+                        @click="addToCart"
+                        class="btn-primary"
+                        text="Add to cart"
+                    />
+                    <ActionButton
+                        v-else
+                        class="btn-danger"
+                        text="Stock empty"
+                        disabled
+                    />
                 </div>
                 <div class="product-content">
                     <h3>{{ product.name }}</h3>

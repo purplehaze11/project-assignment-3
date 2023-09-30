@@ -9,9 +9,16 @@
             <div class="d-flex justify-content-between align-items-center">
                 <p class="m-0 card-text">Stock: {{ product.stock }}</p>
                 <ActionButton
+                    v-if="product.stock != 0"
                     @click="addToCart"
                     class="btn-primary"
                     text="Add to cart"
+                />
+                <ActionButton
+                    v-else
+                    class="btn-danger"
+                    text="Stock empty"
+                    disabled
                 />
             </div>
         </div>
