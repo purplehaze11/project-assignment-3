@@ -13,7 +13,11 @@
             >
                 <p>{{ product.inCart }}</p>
             </div>
-            <ActionButton class="btn-danger" text="Clear" />
+            <ActionButton
+                @click="clearProductInCart"
+                class="btn-danger"
+                text="Clear"
+            />
         </div>
         <p>Rp. {{ product.price }}</p>
     </div>
@@ -40,6 +44,9 @@ export default {
     methods: {
         reduceProductInCart() {
             this.$store.dispatch("reduceProductInCart", this.productId);
+        },
+        clearProductInCart() {
+            this.$store.dispatch("clearProductInCart", this.productId);
         },
     },
 };

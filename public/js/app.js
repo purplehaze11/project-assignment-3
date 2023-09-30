@@ -20186,6 +20186,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     reduceProductInCart: function reduceProductInCart() {
       this.$store.dispatch("reduceProductInCart", this.productId);
+    },
+    clearProductInCart: function clearProductInCart() {
+      this.$store.dispatch("clearProductInCart", this.productId);
     }
   }
 });
@@ -20476,9 +20479,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "btn-secondary",
     text: "-"
   }, null, 8 /* PROPS */, ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.product.inCart), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ActionButton, {
+    onClick: $options.clearProductInCart,
     "class": "btn-danger",
     text: "Clear"
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.product.price), 1 /* TEXT */)]);
+  }, null, 8 /* PROPS */, ["onClick"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.product.price), 1 /* TEXT */)]);
 }
 
 /***/ }),
@@ -20883,6 +20887,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       } finally {
         _iterator2.f();
       }
+    },
+    clearProductInCart: function clearProductInCart(state, payload) {
+      var _iterator3 = _createForOfIteratorHelper(state.products),
+        _step3;
+      try {
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          var product = _step3.value;
+          if (product.id == payload) {
+            state.totalInCart -= product.inCart;
+            product.stock += product.inCart;
+            product.inCart = 0;
+          }
+        }
+      } catch (err) {
+        _iterator3.e(err);
+      } finally {
+        _iterator3.f();
+      }
     }
   },
   actions: {
@@ -20910,6 +20932,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     reduceProductInCart: function reduceProductInCart(context, payload) {
       context.commit("reduceProductInCart", payload);
+    },
+    clearProductInCart: function clearProductInCart(context, payload) {
+      context.commit("clearProductInCart", payload);
     }
   }
 }));

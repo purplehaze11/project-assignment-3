@@ -32,6 +32,15 @@ export default createStore({
                 }
             }
         },
+        clearProductInCart(state, payload) {
+            for (const product of state.products) {
+                if (product.id == payload) {
+                    state.totalInCart -= product.inCart;
+                    product.stock += product.inCart;
+                    product.inCart = 0;
+                }
+            }
+        },
     },
     actions: {
         async FETCH_PRODUCTS() {
@@ -43,6 +52,9 @@ export default createStore({
         },
         reduceProductInCart(context, payload) {
             context.commit("reduceProductInCart", payload);
+        },
+        clearProductInCart(context, payload) {
+            context.commit("clearProductInCart", payload);
         },
     },
 });
