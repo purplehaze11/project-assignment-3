@@ -23,6 +23,15 @@ export default createStore({
                 }
             }
         },
+        reduceProductInCart(state, payload) {
+            for (const product of state.products) {
+                if (product.id == payload) {
+                    product.inCart--;
+                    product.stock++;
+                    state.totalInCart--;
+                }
+            }
+        },
     },
     actions: {
         async FETCH_PRODUCTS() {
@@ -31,6 +40,9 @@ export default createStore({
         },
         addToCart(context, payload) {
             context.commit("addToCart", payload);
+        },
+        reduceProductInCart(context, payload) {
+            context.commit("reduceProductInCart", payload);
         },
     },
 });

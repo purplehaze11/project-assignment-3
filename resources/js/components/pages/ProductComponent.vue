@@ -67,7 +67,7 @@ export default {
 
 <style scoped>
 #product-template {
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
 .product-content {
