@@ -4,6 +4,7 @@ export default createStore({
     state: {
         products: [],
         totalInCart: 0,
+        totalPrice: 0,
     },
     getters: {
         getProducts(state) {
@@ -20,6 +21,9 @@ export default createStore({
                     product.inCart++;
                     product.stock--;
                     state.totalInCart++;
+                    state.totalPrice += parseInt(
+                        product.price.split(".").join(""),
+                    );
                 }
             }
         },
@@ -29,6 +33,9 @@ export default createStore({
                     product.inCart--;
                     product.stock++;
                     state.totalInCart--;
+                    state.totalPrice -= parseInt(
+                        product.price.split(".").join(""),
+                    );
                 }
             }
         },
@@ -37,6 +44,9 @@ export default createStore({
                 if (product.id == payload) {
                     state.totalInCart -= product.inCart;
                     product.stock += product.inCart;
+                    state.totalPrice -=
+                        parseInt(product.price.split(".").join("")) *
+                        product.inCart;
                     product.inCart = 0;
                 }
             }

@@ -1,7 +1,9 @@
 <template>
     <div class="flex-row d-flex justify-content-between align-items-center">
-        <p>{{ product.name }}</p>
-        <div class="flex-row d-flex">
+        <div class="list-section d-flex justify-content-center">
+            <p>{{ product.name }}</p>
+        </div>
+        <div class="flex-row list-section d-flex justify-content-center">
             <ActionButton
                 @click="reduceProductInCart"
                 class="btn-secondary"
@@ -19,7 +21,9 @@
                 text="Clear"
             />
         </div>
-        <p>Rp. {{ product.price }}</p>
+        <div class="list-section d-flex justify-content-center">
+            <p>Rp. {{ product.price }}</p>
+        </div>
     </div>
 </template>
 
@@ -59,5 +63,9 @@ p {
 
 #numbersOfProduct {
     width: 2rem;
+}
+
+.list-section {
+    width: 30%;
 }
 </style>
