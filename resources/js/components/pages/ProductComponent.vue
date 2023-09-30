@@ -43,6 +43,11 @@ import ActionButton from "../ActionButton.vue";
 
 export default {
     name: "ProductComponent",
+    data() {
+        return {
+            productId: this.id, //put the props data into data first
+        };
+    },
     components: {
         ActionButton,
     },
@@ -51,6 +56,11 @@ export default {
         ...mapGetters({
             products: "getProducts",
         }),
+    },
+    methods: {
+        addToCart() {
+            this.$store.dispatch("addToCart", this.productId);
+        },
     },
 };
 </script>

@@ -20255,13 +20255,24 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProductComponent",
+  data: function data() {
+    return {
+      productId: this.id //put the props data into data first
+    };
+  },
+
   components: {
     ActionButton: _ActionButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ["id"],
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
     products: "getProducts"
-  }))
+  })),
+  methods: {
+    addToCart: function addToCart() {
+      this.$store.dispatch("addToCart", this.productId);
+    }
+  }
 });
 
 /***/ }),
@@ -20530,7 +20541,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       alt: ""
     }, null, 8 /* PROPS */, _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Price: Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Stock: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.stock), 1 /* TEXT */), product.stock != 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ActionButton, {
       key: 0,
-      onClick: _ctx.addToCart,
+      onClick: $options.addToCart,
       "class": "btn-primary",
       text: "Add to cart"
     }, null, 8 /* PROPS */, ["onClick"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ActionButton, {
