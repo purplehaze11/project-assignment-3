@@ -5,6 +5,9 @@ export default createStore({
         products: [],
         totalInCart: 0,
         totalPrice: 0,
+        totalItemBought: 0,
+        totalPriceBought: 0,
+        isAlreadyBought: false,
     },
     getters: {
         getProducts(state) {
@@ -15,6 +18,15 @@ export default createStore({
         },
         getTotalPrice(state) {
             return state.totalPrice;
+        },
+        getTotalItemBought(state) {
+            return state.totalItemBought;
+        },
+        getTotalPriceBought(state) {
+            return state.totalPriceBought;
+        },
+        getIsAlreadyBought(state) {
+            return state.isAlreadyBought;
         },
     },
     mutations: {
@@ -27,6 +39,7 @@ export default createStore({
                     state.totalPrice += parseInt(
                         product.price.split(".").join(""),
                     );
+                    state.isAlreadyBought = false;
                 }
             }
         },
@@ -54,6 +67,16 @@ export default createStore({
                 }
             }
         },
+        buyProducts(state) {
+            state.isAlreadyBought = true;
+            state.totalItemBought = state.totalInCart;
+            state.totalPriceBought = state.totalPrice;
+            state.totalInCart = 0;
+            state.totalPrice = 0;
+            for (const product of state.products) {
+                product.inCart = 0;
+            }
+        },
     },
     actions: {
         async FETCH_PRODUCTS() {
@@ -68,6 +91,9 @@ export default createStore({
         },
         clearProductInCart(context, payload) {
             context.commit("clearProductInCart", payload);
+        },
+        buyProducts(context) {
+            context.commit("buyProducts");
         },
     },
 });

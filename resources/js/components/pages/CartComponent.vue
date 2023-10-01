@@ -16,26 +16,46 @@
                     <p>Total: {{ totalPrice }}</p>
                 </div>
             </li>
+            <li class="list-group-item">
+                <div class="d-flex justify-content-center">
+                    <ActionButton
+                        @click="buyProducts"
+                        class="btn-success"
+                        text="Buy"
+                    />
+                </div>
+            </li>
         </ul>
-        <p v-else>You have no product in the cart</p>
+        <CartInformation v-else-if="isAlreadyBought == true" />
+        <CartInformation v-else :infoImg="true" />
     </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import ProductInCart from "../ProductInCart.vue";
+import CartInformation from "../CartInformation.vue";
+import ActionButton from "../ActionButton.vue";
 
 export default {
     name: "CartComponent",
     components: {
         ProductInCart,
+        CartInformation,
+        ActionButton,
     },
     computed: {
         ...mapGetters({
             products: "getProducts",
             totalInCart: "getTotalInCart",
             totalPrice: "getTotalPrice",
+            isAlreadyBought: "getIsAlreadyBought",
         }),
+    },
+    methods: {
+        buyProducts() {
+            this.$store.dispatch("buyProducts");
+        },
     },
 };
 </script>
