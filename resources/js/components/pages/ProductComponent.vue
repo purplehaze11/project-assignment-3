@@ -30,9 +30,9 @@
                         />
                     </div>
                 </div>
-                <div class="product-content">
-                    <h3>{{ product.name }}</h3>
-                    <p>{{ product.description }}</p>
+                <div id="description-card" class="card product-content">
+                    <h3 class="card-title">{{ product.name }}</h3>
+                    <p class="card-text">{{ product.description }}</p>
                 </div>
             </div>
         </template>
@@ -82,5 +82,9 @@ img {
 
 .card {
     background-color: #f2fbfc;
+}
+
+#description-card {
+    padding: 2rem;
 }
 </style>

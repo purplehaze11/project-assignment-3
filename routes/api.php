@@ -18,8 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getAllData', 'Mocking\Controllers\ExampleController@getData');
-Route::post('/postData', 'Mocking\Controllers\ExampleController@postData');
-Route::put('/putData', 'Mocking\Controllers\ExampleController@putData');
-Route::patch('/patchData', 'Mocking\Controllers\ExampleController@patchData');
-Route::delete('/deleteData/{id?}', 'Mocking\Controllers\ExampleController@deleteData');
+Route::get('/getAllData', 'Mocking\Controllers\ProductController@getData');

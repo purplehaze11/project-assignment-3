@@ -20810,7 +20810,14 @@ var _hoisted_7 = {
   "class": "card-text"
 };
 var _hoisted_8 = {
-  "class": "product-content"
+  id: "description-card",
+  "class": "card product-content"
+};
+var _hoisted_9 = {
+  "class": "card-title"
+};
+var _hoisted_10 = {
+  "class": "card-text"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ActionButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ActionButton");
@@ -20831,7 +20838,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "btn-danger",
       text: "Stock empty",
       disabled: ""
-    }))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.description), 1 /* TEXT */)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64 /* STABLE_FRAGMENT */);
+    }))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.description), 1 /* TEXT */)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64 /* STABLE_FRAGMENT */);
   }), 128 /* KEYED_FRAGMENT */))]);
 }
 
@@ -27717,7 +27724,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#product-template[data-v-3d019b64] {\n    margin: 2rem 0;\n}\n.product-content[data-v-3d019b64] {\n    max-width: 40%;\n}\nimg[data-v-3d019b64] {\n    width: 100%;\n}\n.card[data-v-3d019b64] {\n    background-color: #f2fbfc;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#product-template[data-v-3d019b64] {\n    margin: 2rem 0;\n}\n.product-content[data-v-3d019b64] {\n    max-width: 40%;\n}\nimg[data-v-3d019b64] {\n    width: 100%;\n}\n.card[data-v-3d019b64] {\n    background-color: #f2fbfc;\n}\n#description-card[data-v-3d019b64] {\n    padding: 2rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
