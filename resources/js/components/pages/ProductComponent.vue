@@ -7,26 +7,28 @@
         >
             <div
                 id="product-template"
-                class="d-flex justify-content-around"
+                class="d-flex justify-content-evenly"
                 v-if="product.id == id"
             >
-                <div class="product-content">
-                    <img :src="product.imgUrl" alt="" />
-                    <h2>{{ product.name }}</h2>
-                    <p>Price: Rp. {{ product.price }}</p>
-                    <p>Stock: {{ product.stock }}</p>
-                    <ActionButton
-                        v-if="product.stock != 0"
-                        @click="addToCart"
-                        class="btn-primary"
-                        text="Add to cart"
-                    />
-                    <ActionButton
-                        v-else
-                        class="btn-danger"
-                        text="Stock empty"
-                        disabled
-                    />
+                <div class="card product-content">
+                    <img class="card-img-top" :src="product.imgUrl" alt="" />
+                    <div class="card-body">
+                        <h2 class="card-title">{{ product.name }}</h2>
+                        <p class="card-text">Price: Rp. {{ product.price }}</p>
+                        <p class="card-text">Stock: {{ product.stock }}</p>
+                        <ActionButton
+                            v-if="product.stock != 0"
+                            @click="addToCart"
+                            class="btn-primary"
+                            text="Add to cart"
+                        />
+                        <ActionButton
+                            v-else
+                            class="btn-danger"
+                            text="Stock empty"
+                            disabled
+                        />
+                    </div>
                 </div>
                 <div class="product-content">
                     <h3>{{ product.name }}</h3>
@@ -72,5 +74,13 @@ export default {
 
 .product-content {
     max-width: 40%;
+}
+
+img {
+    width: 100%;
+}
+
+.card {
+    background-color: #f2fbfc;
 }
 </style>

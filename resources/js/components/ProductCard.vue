@@ -46,7 +46,7 @@ export default {
     },
     computed: {
         productLink() {
-            return `/product/${this.product.id}`;
+            return `/${this.product.id}`;
         },
     },
     methods: {
